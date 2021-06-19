@@ -14,6 +14,9 @@ docker-compose --version
 #### Удалить вольюм db
 `docker volume rm db`
 
+#### Удалить все вольюмы
+`docker volume  rm $(docker volume ls -q)`
+
 #### Подробности про вольюм db
 `docker volume inspect db`
 

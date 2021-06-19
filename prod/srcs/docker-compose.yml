@@ -1,0 +1,38 @@
+networks:
+  ipasta_net:
+    name: ipasta_net
+    driver: bridge
+
+volumes:
+  n_wp:
+    driver: local
+    name: n_wp
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/ipasta/inception_volumes/n_wp
+  sql:
+    driver: local
+    name: sql
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/ipasta/inception_volumes/sql
+
+services:
+  nginx:
+    image: nginx
+    env_file: .env
+    volumes:
+      - n_wp:/var/www/n_wp
+    restart: always
+    user: root #TODO это чего и зачем?
+    networks:
+      - ipasta_net
+    container_name: nginx
+    ports:
+      - "443:443"
+
+
+
+
