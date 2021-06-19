@@ -21,7 +21,7 @@ volumes:
 
 services:
   nginx:
-    image: nginx
+    build: ./requirements/nginx
     env_file: .env
     volumes:
       - n_wp:/var/www/n_wp
@@ -33,6 +33,41 @@ services:
     ports:
       - "443:443"
 
+  wordpress:
+    build: ./requirements/wordpress
+    env_file: .env
+#    volumes:
+#      - n_wp:/var/www/n_wp
+    restart: always
+    user: root
+    networks:
+      - ipasta_net
+    container_name: wordpress
+#    ports:
+#      - "9000:9000"
 
+  mariadb:
+    build: ./requirements/mariadb
+    env_file: .env
+    volumes:
+      - n_wp:/var/www/sql
+    restart: always
+    user: root
+    networks:
+      - ipasta_net
+    container_name: mariadb
+#    ports:
+#      - "3306:3306" #TODO переделать (наверное удалить)
+
+  phpmyadmin:
+    build: ./requirements/bonus/phpmyadmin
+    env_file: .env
+    restart: always
+    user: root
+    networks:
+      - ipasta_net
+    container_name: phpmyadmin
+    ports:
+      - "5000:5000"
 
 
