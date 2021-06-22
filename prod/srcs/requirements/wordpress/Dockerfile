@@ -25,12 +25,19 @@ RUN rm -Rf /wordpress
 
 COPY ./srcs/wp-config.php /var/www/html/wordpress/wp-config.php
 
+
+RUN echo "listen = 9000" >> /etc/php7/php-fpm.d/www.conf #trabl was here!
+
 #COPY srcs/supervisord.conf /etc/supervisor/supervisord.conf
 #COPY srcs/start.sh /etc/start.sh
 
 #RUN chmod +x /etc/start.sh
+
 EXPOSE 9000
 
 #ENTRYPOINT ["/etc/start.sh"]
-CMD php -S 0.0.0.0:9000 -t /var/www/html/wordpress
+#CMD php -S 0.0.0.0:9000 -t /var/www/html/wordpress
+CMD /usr/sbin/php-fpm7 -F #trabl was here!
+
+#CMD sleep 100000
 

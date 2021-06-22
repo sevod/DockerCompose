@@ -1,5 +1,5 @@
 all:
-	docker-compose -f ./srcs/docker-compose.yml up --build -d
+	docker-compose -f ./srcs/docker-compose.yml up --build -d --remove-orphans 
 
 stop:
 	docker-compose -f ./srcs/docker-compose.yml down
@@ -14,5 +14,14 @@ stop:
 #fclean: clean
 #	docker rmi mariadb nginx wordpress
 
-re: stop
-	docker-compose -f ./srcs/docker-compose.yml up --build -d
+fclean: stop
+	rm -rf /home/ipasta/data/site/*
+	rm -rf /home/ipasta/data/db/*
+	docker volume rm site
+	docker volume rm db
+
+re: fclean
+	docker-compose -f ./srcs/docker-compose.yml up --build -d --remove-orphans 
+
+
+

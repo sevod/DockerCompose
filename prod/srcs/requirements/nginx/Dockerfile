@@ -8,7 +8,11 @@ RUN apk add busybox-extras
 
 #RUN ssh-keygen -A
 RUN mkdir /run/nginx
-COPY ./srcs/ssl /etc/nginx/ssl
+# COPY ./srcs/ssl /etc/nginx/ssl
+
+RUN openssl req -x509 -nodes -days 365 -subj "/C=RU/ST=RT/L=Kazan/CN=ipasta" -newkey rsa:2048 -keyout /etc/ssl/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt;
+
+
 #COPY ./srcs/index.html /var/www/index.html
 #COPY ./srcs/sshd_config /etc/ssh/sshd_config
 COPY ./srcs/default.conf /etc/nginx/conf.d
