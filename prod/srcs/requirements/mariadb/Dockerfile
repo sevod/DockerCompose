@@ -4,13 +4,12 @@ RUN apk update
 RUN apk upgrade
 RUN apk add vim bash
 RUN apk add mariadb mariadb-client
-#RUN apk add mysql mysql-client
 #telnet
 RUN apk add busybox-extras
 
-COPY srcs/my.cnf /etc/my.cnf
-COPY srcs/mariadb.sql mariadb.sql
-COPY srcs/start.sh start.sh
+COPY ./conf/my.cnf /etc/my.cnf
+COPY ./conf/mariadb.sql mariadb.sql
+COPY ./tools/start.sh start.sh
 RUN chmod +x start.sh
 
 RUN mkdir /run/mysqld
@@ -20,4 +19,5 @@ EXPOSE 3306
 
 RUN bash start.sh
 
-CMD mysqld -u root
+ENTRYPOINT ["mysqld"]
+CMD ["-u root"]
