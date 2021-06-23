@@ -17,7 +17,7 @@ RUN mariadb-install-db -u root
 
 EXPOSE 3306
 
-RUN bash start.sh
+RUN /start.sh
 
 ENTRYPOINT ["mysqld"]
 CMD ["-u root"]
