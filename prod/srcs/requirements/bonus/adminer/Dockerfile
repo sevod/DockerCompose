@@ -15,12 +15,9 @@ RUN mkdir -p /var/log/supervisor
 
 COPY ./srcs/default.conf /etc/nginx/conf.d/default.conf
 
-#COPY ./srcs/config.inc.php /var/www/html/phpmyadmin/config.inc.php
 COPY ./srcs/supervisord.conf /etc/supervisor/supervisord.conf
 
-#RUN chmod 777 /var/www/html/phpmyadmin
-
-COPY ./srcs/adminer-4.8.1.php /var/www/html/adminer/adminer.php
+COPY ./srcs/adminer-4.8.1.php /var/www/html/adminer.php
 
 COPY ./srcs/www.conf /etc/php7/php-fpm.d/www.conf
 

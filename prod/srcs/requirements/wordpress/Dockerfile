@@ -14,12 +14,11 @@ COPY ./conf/wordpress-5.6.zip /
 RUN unzip /wordpress-5.6.zip
 RUN mkdir /var/www
 RUN mkdir /var/www/html
-RUN mkdir /var/www/html/wordpress
-RUN cp -R /wordpress/* /var/www/html/wordpress
+RUN cp -R /wordpress/* /var/www/html/
 RUN rm -Rf /wordpress-5.6.zip
 RUN rm -Rf /wordpress
 
-COPY ./conf/wp-config.php /var/www/html/wordpress/wp-config.php
+COPY ./conf/wp-config.php /var/www/html/wp-config.php
 COPY ./conf/www.conf /etc/php7/php-fpm.d/www.conf
 
 EXPOSE 9000
