@@ -72,10 +72,13 @@ services:
     ports:
       - "5000:5000"
 
-#  adminer:
-#    image: adminer
-#    restart: always
-#    ports:
-#      - "8080:8080"
-#    networks:
-#      - ipasta_net
+  redis:
+    build: ./requirements/bonus/redis
+    image: redis
+    container_name: redis
+    env_file: .env
+    restart: always
+    user: root
+    networks:
+      - ipasta_net
+

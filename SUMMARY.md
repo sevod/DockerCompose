@@ -1,3 +1,9 @@
+# Общий конспект проекта
+
+##Docker и Docker Compose
+
+---
+
 ### Установка docker compose в ubuntu
 
 ````
@@ -6,7 +12,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ````
 
-### Команды
+### Команды docker
+
+---
 
 #### Посмотреть список вольюмов в докере
 `docker volume ls`
@@ -26,7 +34,21 @@ docker-compose --version
 #### Подробности сети под названием bidge
 `docker network inspect bridge`
 
-#### [Много полезных команд](https://habr.com/ru/company/ruvds/blog/450312/)
+#### [Много полезных команд по docker](https://habr.com/ru/company/ruvds/blog/450312/)
 
+## [Adminer](https://www.adminer.org/)
 
+---
 
+## Redis
+
+---
+
+[Установка Redis + Wordpress](https://wpgutenberg.top/nastrojka-redis-dlja-wordpress/)
+
+### Команды redis
+
+#### можно посмотреть что происходит в redis
+````
+redis-cli monitor
+````
