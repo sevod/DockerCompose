@@ -82,3 +82,17 @@ services:
     networks:
       - ipasta_net
 
+  ftp:
+    build: ./requirements/bonus/ftp
+    image: ftp
+    container_name: ftp
+    env_file: .env
+    restart: always
+    user: root
+    networks:
+      - ipasta_net
+    ports:
+      - "21:21"
+      - "20:20"
+      - "30021:30021"
+
