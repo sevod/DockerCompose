@@ -1,7 +1,7 @@
-docker stop ftps
-docker rm ftps
-docker rmi ftps
-docker build -t ftps .
-docker run --name ftps -itd -p 21:21 -p 21000:21000 ftps
+docker stop ftp
+docker rm ftp
+docker rmi ftp
+docker build -t ftp .
+docker run --name ftp -itd -p 21:21 -p 20:20  -p 21000:21000 ftp
 docker ps -a
-#docker exec -it ftps bash
+#docker exec -it ftp bash
