@@ -89,10 +89,11 @@ services:
     env_file: .env
     restart: always
     user: root
+    volumes:
+      - n_wp:/root
     networks:
       - ipasta_net
     ports:
-      - "21:21"
       - "20:20"
-      - "30021:30021"
-
+      - "21:21"
+      - "21000:21000"

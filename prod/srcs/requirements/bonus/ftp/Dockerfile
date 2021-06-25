@@ -1,18 +1,17 @@
-FROM alpine:3.12
+FROM alpine:3.13.5
 
 RUN apk update
-RUN apk upgrade
-RUN apk add vim bash vsftpd openssl
+RUN apk add vim bash vsftpd
 
-RUN adduser -D ftpsecure -s=/sbin/nologin
-RUN echo -e "123456\n123456\n" | passwd ftpsecure
+#RUN adduser -D ftpsecure -s=/sbin/nologin -G root
+#RUN echo -e "123456\n123456\n" | passwd ftpsecure
+
 RUN echo -e "123456\n123456\n" | passwd
 
-RUN echo "ftp test" >> /home/ftpsecure/test.txt
+COPY ./conf/vsftpd.conf /etc/vsftpd/vsftpd.conf
 
-COPY ./srcs/vsftpd.conf /etc/vsftpd/vsftpd.conf
-COPY ./srcs/start.sh /
 
 EXPOSE 20 21 21000
 
-ENTRYPOINT bash start.sh
+ENTRYPOINT ["vsftpd"]
+CMD ["/etc/vsftpd/vsftpd.conf"]
