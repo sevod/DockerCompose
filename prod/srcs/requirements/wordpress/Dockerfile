@@ -2,7 +2,7 @@ FROM	alpine:3.13.5
 
 RUN apk update
 RUN apk upgrade
-RUN apk add vim bash supervisor
+RUN apk add vim bash
 RUN apk add php7 php7-fpm php7-mysqli php7-json
 #redis-php
 RUN apk add php7-pecl-redis php7-redis php7-ctype
