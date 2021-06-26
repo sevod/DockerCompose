@@ -7,9 +7,6 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-CREATE DATABASE `wordpress` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
-USE `wordpress`;
-
 DROP TABLE IF EXISTS `wp_commentmeta`;
 CREATE TABLE `wp_commentmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -48,7 +45,8 @@ CREATE TABLE `wp_comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_date_gmt`, `comment_content`, `comment_karma`, `comment_approved`, `comment_agent`, `comment_type`, `comment_parent`, `user_id`) VALUES
-(1,	1,	'A WordPress Commenter',	'wapuu@wordpress.example',	'https://wordpress.org/',	'',	'2021-06-24 08:35:35',	'2021-06-24 08:35:35',	'Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://gravatar.com\">Gravatar</a>.',	0,	'1',	'',	'comment',	0,	0);
+(1,	1,	'A WordPress Commenter',	'wapuu@wordpress.example',	'https://wordpress.org/',	'',	'2021-06-24 08:35:35',	'2021-06-24 08:35:35',	'Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://gravatar.com\">Gravatar</a>.',	0,	'1',	'',	'comment',	0,	0),
+(2,	8,	'root',	'as@af.ru',	'https://localhost',	'172.19.0.1',	'2021-06-26 18:19:52',	'2021-06-26 18:19:52',	'Прикольно!',	0,	'1',	'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0',	'comment',	0,	1);
 
 DROP TABLE IF EXISTS `wp_links`;
 CREATE TABLE `wp_links` (
@@ -188,7 +186,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (104,	'widget_archives',	'a:2:{i:2;a:3:{s:5:\"title\";s:0:\"\";s:5:\"count\";i:0;s:8:\"dropdown\";i:0;}s:12:\"_multiwidget\";i:1;}',	'yes'),
 (105,	'widget_meta',	'a:2:{i:2;a:1:{s:5:\"title\";s:0:\"\";}s:12:\"_multiwidget\";i:1;}',	'yes'),
 (106,	'sidebars_widgets',	'a:4:{s:19:\"wp_inactive_widgets\";a:0:{}s:9:\"sidebar-1\";a:3:{i:0;s:8:\"search-2\";i:1;s:14:\"recent-posts-2\";i:2;s:17:\"recent-comments-2\";}s:9:\"sidebar-2\";a:3:{i:0;s:10:\"archives-2\";i:1;s:12:\"categories-2\";i:2;s:6:\"meta-2\";}s:13:\"array_version\";i:3;}',	'yes'),
-(107,	'cron',	'a:7:{i:1624523737;a:5:{s:32:\"recovery_mode_clean_expired_keys\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1624523745;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1624523749;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1624523796;a:1:{s:8:\"do_pings\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:0:{}}}}i:1624523805;a:1:{s:28:\"wp_update_comment_type_batch\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:0:{}}}}i:1624610137;a:1:{s:30:\"wp_site_health_scheduled_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"weekly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:604800;}}}s:7:\"version\";i:2;}',	'yes'),
+(107,	'cron',	'a:8:{i:1624523737;a:5:{s:32:\"recovery_mode_clean_expired_keys\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:34:\"wp_privacy_delete_old_export_files\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"hourly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:3600;}}s:16:\"wp_version_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:17:\"wp_update_plugins\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}s:16:\"wp_update_themes\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}i:1624523745;a:2:{s:19:\"wp_scheduled_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}s:25:\"delete_expired_transients\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1624523749;a:1:{s:30:\"wp_scheduled_auto_draft_delete\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:5:\"daily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:86400;}}}i:1624523796;a:1:{s:8:\"do_pings\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:0:{}}}}i:1624523805;a:1:{s:28:\"wp_update_comment_type_batch\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:2:{s:8:\"schedule\";b:0;s:4:\"args\";a:0:{}}}}i:1624610137;a:1:{s:30:\"wp_site_health_scheduled_check\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:6:\"weekly\";s:4:\"args\";a:0:{}s:8:\"interval\";i:604800;}}}i:1624727135;a:1:{s:18:\"wp_https_detection\";a:1:{s:32:\"40cd750bba9870f18aada2478b24840a\";a:3:{s:8:\"schedule\";s:10:\"twicedaily\";s:4:\"args\";a:0:{}s:8:\"interval\";i:43200;}}}s:7:\"version\";i:2;}',	'yes'),
 (108,	'widget_pages',	'a:1:{s:12:\"_multiwidget\";i:1;}',	'yes'),
 (109,	'widget_calendar',	'a:1:{s:12:\"_multiwidget\";i:1;}',	'yes'),
 (110,	'widget_media_audio',	'a:1:{s:12:\"_multiwidget\";i:1;}',	'yes'),
@@ -234,7 +232,10 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (2,	3,	'_wp_page_template',	'default'),
 (3,	5,	'_edit_lock',	'1624524142:1'),
 (4,	5,	'_pingme',	'1'),
-(5,	5,	'_encloseme',	'1');
+(5,	5,	'_encloseme',	'1'),
+(6,	8,	'_edit_lock',	'1624731421:1'),
+(7,	8,	'_pingme',	'1'),
+(8,	8,	'_encloseme',	'1');
 
 DROP TABLE IF EXISTS `wp_posts`;
 CREATE TABLE `wp_posts` (
@@ -275,7 +276,9 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (4,	1,	'2021-06-24 08:35:49',	'0000-00-00 00:00:00',	'',	'Auto Draft',	'',	'auto-draft',	'open',	'open',	'',	'',	'',	'',	'2021-06-24 08:35:49',	'0000-00-00 00:00:00',	'',	0,	'https://localhost/?p=4',	0,	'post',	'',	0),
 (5,	1,	'2021-06-24 08:36:36',	'2021-06-24 08:36:36',	'<!-- wp:paragraph -->\n<p>It\'s super content new post!</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>root and user</p>\n<!-- /wp:paragraph -->',	'NEW POST',	'',	'publish',	'open',	'open',	'',	'new-post',	'',	'',	'2021-06-24 08:43:16',	'2021-06-24 08:43:16',	'',	0,	'https://localhost/?p=5',	0,	'post',	'',	0),
 (6,	1,	'2021-06-24 08:36:36',	'2021-06-24 08:36:36',	'<!-- wp:paragraph -->\n<p>It\'s super content new post!</p>\n<!-- /wp:paragraph -->',	'NEW POST',	'',	'inherit',	'closed',	'closed',	'',	'5-revision-v1',	'',	'',	'2021-06-24 08:36:36',	'2021-06-24 08:36:36',	'',	5,	'https://localhost/?p=6',	0,	'revision',	'',	0),
-(7,	1,	'2021-06-24 08:43:16',	'2021-06-24 08:43:16',	'<!-- wp:paragraph -->\n<p>It\'s super content new post!</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>root and user</p>\n<!-- /wp:paragraph -->',	'NEW POST',	'',	'inherit',	'closed',	'closed',	'',	'5-revision-v1',	'',	'',	'2021-06-24 08:43:16',	'2021-06-24 08:43:16',	'',	5,	'https://localhost/?p=7',	0,	'revision',	'',	0);
+(7,	1,	'2021-06-24 08:43:16',	'2021-06-24 08:43:16',	'<!-- wp:paragraph -->\n<p>It\'s super content new post!</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>root and user</p>\n<!-- /wp:paragraph -->',	'NEW POST',	'',	'inherit',	'closed',	'closed',	'',	'5-revision-v1',	'',	'',	'2021-06-24 08:43:16',	'2021-06-24 08:43:16',	'',	5,	'https://localhost/?p=7',	0,	'revision',	'',	0),
+(8,	1,	'2021-06-26 18:19:23',	'2021-06-26 18:19:23',	'<!-- wp:paragraph -->\n<p>Третий пост</p>\n<!-- /wp:paragraph -->',	'Третий пост',	'',	'publish',	'open',	'open',	'',	'%d0%a2%d1%80%d0%b5%d1%82%d0%b8%d0%b9-%d0%bf%d0%be%d1%81%d1%82',	'',	'',	'2021-06-26 18:19:23',	'2021-06-26 18:19:23',	'',	0,	'https://localhost/?p=8',	0,	'post',	'',	1),
+(9,	1,	'2021-06-26 18:19:23',	'2021-06-26 18:19:23',	'<!-- wp:paragraph -->\n<p>Третий пост</p>\n<!-- /wp:paragraph -->',	'Третий пост',	'',	'inherit',	'closed',	'closed',	'',	'8-revision-v1',	'',	'',	'2021-06-26 18:19:23',	'2021-06-26 18:19:23',	'',	8,	'https://localhost/?p=9',	0,	'revision',	'',	0);
 
 DROP TABLE IF EXISTS `wp_termmeta`;
 CREATE TABLE `wp_termmeta` (
@@ -314,7 +317,8 @@ CREATE TABLE `wp_term_relationships` (
 
 INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
 (1,	1,	0),
-(5,	1,	0);
+(5,	1,	0),
+(8,	1,	0);
 
 DROP TABLE IF EXISTS `wp_term_taxonomy`;
 CREATE TABLE `wp_term_taxonomy` (
@@ -330,7 +334,7 @@ CREATE TABLE `wp_term_taxonomy` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
-(1,	1,	'category',	'',	0,	2);
+(1,	1,	'category',	'',	0,	3);
 
 DROP TABLE IF EXISTS `wp_usermeta`;
 CREATE TABLE `wp_usermeta` (
@@ -360,7 +364,7 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (14,	1,	'dismissed_wp_pointers',	''),
 (15,	1,	'show_welcome_panel',	'1'),
 (17,	1,	'wp_dashboard_quick_press_last_post_id',	'4'),
-(18,	1,	'community-events-location',	'a:1:{s:2:\"ip\";s:10:\"172.18.0.0\";}'),
+(18,	1,	'community-events-location',	'a:1:{s:2:\"ip\";s:10:\"172.19.0.0\";}'),
 (19,	2,	'nickname',	'user'),
 (20,	2,	'first_name',	'user'),
 (21,	2,	'last_name',	''),
@@ -375,7 +379,7 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (30,	2,	'wp_capabilities',	'a:1:{s:10:\"subscriber\";b:1;}'),
 (31,	2,	'wp_user_level',	'0'),
 (32,	2,	'dismissed_wp_pointers',	''),
-(33,	1,	'session_tokens',	'a:1:{s:64:\"8d728efe1edb67b99e35d7c0e6261eaa3f99f24f34d456624180db3b364ddc8f\";a:4:{s:10:\"expiration\";i:1624696891;s:2:\"ip\";s:10:\"172.18.0.1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36\";s:5:\"login\";i:1624524091;}}');
+(33,	1,	'session_tokens',	'a:1:{s:64:\"32cffc8215a7e4ccdcfcd677e49b52a7d6b1250aae857a5a78c487ae1b45697f\";a:4:{s:10:\"expiration\";i:1624904337;s:2:\"ip\";s:10:\"172.19.0.1\";s:2:\"ua\";s:78:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0\";s:5:\"login\";i:1624731537;}}');
 
 DROP TABLE IF EXISTS `wp_users`;
 CREATE TABLE `wp_users` (
@@ -399,4 +403,4 @@ INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_
 (1,	'root',	'$P$BVLyRb4.Yq264cf89qrbzRTwCmyr3G1',	'root',	'as@af.ru',	'https://localhost',	'2021-06-24 08:35:35',	'',	0,	'root'),
 (2,	'user',	'$P$ByMjj4Be/uTUt7vhROj0Ja59H9r6BL.',	'user',	'user@adfs.ru',	'',	'2021-06-24 08:39:02',	'',	0,	'user');
 
--- 2021-06-24 08:49:46
+-- 2021-06-26 19:17:04
