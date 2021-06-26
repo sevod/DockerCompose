@@ -55,6 +55,7 @@ define( 'SECURE_AUTH_SALT', 'keiTwFwbm eNZqsppo&UNW[G4s>(T7]4}f79n3LH(|L2&S1`&X+
 define( 'LOGGED_IN_SALT',   '6cDsQSKItF;#-qd<L,8K}DEaFzI#Xm.L;83&Y}5R3F/{5l6oRHl=p2l -h<#p2aE' );
 define( 'NONCE_SALT',       'bpZ!@Ob9Bwy88GZu/*|%4+_^Kg/][%]^iatPEp^?Y;kXz=dn(S#tig?k@l01KS56' );
 
+#Redis object cash
 define( 'WP_CACHE_KEY_SALT', 'localhost' );
 define( 'WP_CACHE', true );
 

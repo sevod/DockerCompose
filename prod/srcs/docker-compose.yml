@@ -69,8 +69,8 @@ services:
     networks:
       - ipasta_net
     container_name: adminer
-    ports:
-      - "5000:5000"
+#    ports:
+#      - "5000:5000"
 
   redis:
     build: ./requirements/bonus/redis
@@ -97,3 +97,14 @@ services:
       - "20:20"
       - "21:21"
       - "21000:21000"
+  website:
+    build: ./requirements/bonus/website
+    image: website
+    env_file: .env
+    restart: always
+    user: root
+    networks:
+      - ipasta_net
+    container_name: website
+    ports:
+      - "8080:80"

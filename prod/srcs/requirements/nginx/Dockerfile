@@ -10,5 +10,7 @@ RUN openssl req -x509 -nodes -days 365 -subj "/C=RU/ST=RT/L=Kazan/CN=ipasta" -ne
 COPY ./conf/default.conf /etc/nginx/conf.d
 
 EXPOSE 443
+
+#CMD sleep 10000
 ENTRYPOINT ["nginx"]
 CMD ["-g",  "daemon off;"]
