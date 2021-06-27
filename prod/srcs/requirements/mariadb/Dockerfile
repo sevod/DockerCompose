@@ -8,7 +8,7 @@ RUN apk add mariadb mariadb-client
 RUN apk add busybox-extras
 
 COPY ./conf/my.cnf /etc/my.cnf
-COPY conf/mariadb.sql /mariadb.sql
+COPY conf/wordpress.sql /wordpress.sql
 COPY ./tools/start.sh start.sh
 RUN chmod +x start.sh
 

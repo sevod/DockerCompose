@@ -46,7 +46,10 @@ CREATE TABLE `wp_comments` (
 
 INSERT INTO `wp_comments` (`comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_date_gmt`, `comment_content`, `comment_karma`, `comment_approved`, `comment_agent`, `comment_type`, `comment_parent`, `user_id`) VALUES
 (1,	1,	'A WordPress Commenter',	'wapuu@wordpress.example',	'https://wordpress.org/',	'',	'2021-06-24 08:35:35',	'2021-06-24 08:35:35',	'Hi, this is a comment.\nTo get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.\nCommenter avatars come from <a href=\"https://gravatar.com\">Gravatar</a>.',	0,	'1',	'',	'comment',	0,	0),
-(2,	8,	'root',	'as@af.ru',	'https://localhost',	'172.19.0.1',	'2021-06-26 18:19:52',	'2021-06-26 18:19:52',	'Прикольно!',	0,	'1',	'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0',	'comment',	0,	1);
+(2,	8,	'root',	'as@af.ru',	'https://localhost',	'172.19.0.1',	'2021-06-26 18:19:52',	'2021-06-26 18:19:52',	'Прикольно!',	0,	'1',	'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0',	'comment',	0,	1),
+(3,	8,	'root',	'as@af.ru',	'https://localhost',	'172.20.0.1',	'2021-06-26 19:21:25',	'2021-06-26 19:21:25',	'Ну ваще!',	0,	'1',	'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',	'comment',	0,	1),
+(4,	10,	'root',	'as@af.ru',	'https://localhost',	'172.20.0.1',	'2021-06-27 09:00:29',	'2021-06-27 09:00:29',	'Коммента',	0,	'1',	'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0',	'comment',	0,	1),
+(5,	5,	'root',	'as@af.ru',	'https://localhost',	'172.20.0.1',	'2021-06-27 09:00:45',	'2021-06-27 09:00:45',	'Коммент',	0,	'1',	'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0',	'comment',	0,	1);
 
 DROP TABLE IF EXISTS `wp_links`;
 CREATE TABLE `wp_links` (
@@ -118,7 +121,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (36,	'comment_max_links',	'2',	'yes'),
 (37,	'gmt_offset',	'0',	'yes'),
 (38,	'default_email_category',	'1',	'yes'),
-(39,	'recently_edited',	'',	'no'),
+(39,	'recently_edited',	'a:2:{i:0;s:57:\"/var/www/html/wp-content/themes/twentytwentyone/style.css\";i:1;s:0:\"\";}',	'no'),
 (40,	'template',	'twentytwentyone',	'yes'),
 (41,	'stylesheet',	'twentytwentyone',	'yes'),
 (42,	'comment_registration',	'0',	'yes'),
@@ -156,8 +159,8 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 (74,	'comment_order',	'asc',	'yes'),
 (75,	'sticky_posts',	'a:0:{}',	'yes'),
 (76,	'widget_categories',	'a:2:{i:2;a:4:{s:5:\"title\";s:0:\"\";s:5:\"count\";i:0;s:12:\"hierarchical\";i:0;s:8:\"dropdown\";i:0;}s:12:\"_multiwidget\";i:1;}',	'yes'),
-(77,	'widget_text',	'a:0:{}',	'yes'),
-(78,	'widget_rss',	'a:0:{}',	'yes'),
+(77,	'widget_text',	'a:2:{i:1;a:0:{}s:12:\"_multiwidget\";i:1;}',	'yes'),
+(78,	'widget_rss',	'a:2:{i:1;a:0:{}s:12:\"_multiwidget\";i:1;}',	'yes'),
 (79,	'uninstall_plugins',	'a:0:{}',	'no'),
 (80,	'timezone_string',	'',	'yes'),
 (81,	'page_for_posts',	'0',	'yes'),
@@ -235,7 +238,10 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 (5,	5,	'_encloseme',	'1'),
 (6,	8,	'_edit_lock',	'1624731421:1'),
 (7,	8,	'_pingme',	'1'),
-(8,	8,	'_encloseme',	'1');
+(8,	8,	'_encloseme',	'1'),
+(9,	10,	'_edit_lock',	'1624784274:1'),
+(10,	10,	'_pingme',	'1'),
+(11,	10,	'_encloseme',	'1');
 
 DROP TABLE IF EXISTS `wp_posts`;
 CREATE TABLE `wp_posts` (
@@ -274,11 +280,13 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 (2,	1,	'2021-06-24 08:35:35',	'2021-06-24 08:35:35',	'<!-- wp:paragraph -->\n<p>This is an example page. It\'s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>Hi there! I\'m a bike messenger by day, aspiring actor by night, and this is my website. I live in Los Angeles, have a great dog named Jack, and I like pi&#241;a coladas. (And gettin\' caught in the rain.)</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>...or something like this:</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:quote -->\n<blockquote class=\"wp-block-quote\"><p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</p></blockquote>\n<!-- /wp:quote -->\n\n<!-- wp:paragraph -->\n<p>As a new WordPress user, you should go to <a href=\"https://localhost/wp-admin/\">your dashboard</a> to delete this page and create new pages for your content. Have fun!</p>\n<!-- /wp:paragraph -->',	'Sample Page',	'',	'publish',	'closed',	'open',	'',	'sample-page',	'',	'',	'2021-06-24 08:35:35',	'2021-06-24 08:35:35',	'',	0,	'https://localhost/?page_id=2',	0,	'page',	'',	0),
 (3,	1,	'2021-06-24 08:35:35',	'2021-06-24 08:35:35',	'<!-- wp:heading --><h2>Who we are</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Our website address is: https://localhost.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>What personal data we collect and why we collect it</h2><!-- /wp:heading --><!-- wp:heading {\"level\":3} --><h3>Comments</h3><!-- /wp:heading --><!-- wp:paragraph --><p>When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor&#8217;s IP address and browser user agent string to help spam detection.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: https://automattic.com/privacy/. After approval of your comment, your profile picture is visible to the public in the context of your comment.</p><!-- /wp:paragraph --><!-- wp:heading {\"level\":3} --><h3>Media</h3><!-- /wp:heading --><!-- wp:paragraph --><p>If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.</p><!-- /wp:paragraph --><!-- wp:heading {\"level\":3} --><h3>Contact forms</h3><!-- /wp:heading --><!-- wp:heading {\"level\":3} --><h3>Cookies</h3><!-- /wp:heading --><!-- wp:paragraph --><p>If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select &quot;Remember Me&quot;, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p><!-- /wp:paragraph --><!-- wp:heading {\"level\":3} --><h3>Embedded content from other websites</h3><!-- /wp:heading --><!-- wp:paragraph --><p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.</p><!-- /wp:paragraph --><!-- wp:heading {\"level\":3} --><h3>Analytics</h3><!-- /wp:heading --><!-- wp:heading --><h2>Who we share your data with</h2><!-- /wp:heading --><!-- wp:paragraph --><p>If you request a password reset, your IP address will be included in the reset email.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>How long we retain your data</h2><!-- /wp:heading --><!-- wp:paragraph --><p>If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.</p><!-- /wp:paragraph --><!-- wp:paragraph --><p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>What rights you have over your data</h2><!-- /wp:heading --><!-- wp:paragraph --><p>If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>Where we send your data</h2><!-- /wp:heading --><!-- wp:paragraph --><p>Visitor comments may be checked through an automated spam detection service.</p><!-- /wp:paragraph --><!-- wp:heading --><h2>Your contact information</h2><!-- /wp:heading --><!-- wp:heading --><h2>Additional information</h2><!-- /wp:heading --><!-- wp:heading {\"level\":3} --><h3>How we protect your data</h3><!-- /wp:heading --><!-- wp:heading {\"level\":3} --><h3>What data breach procedures we have in place</h3><!-- /wp:heading --><!-- wp:heading {\"level\":3} --><h3>What third parties we receive data from</h3><!-- /wp:heading --><!-- wp:heading {\"level\":3} --><h3>What automated decision making and/or profiling we do with user data</h3><!-- /wp:heading --><!-- wp:heading {\"level\":3} --><h3>Industry regulatory disclosure requirements</h3><!-- /wp:heading -->',	'Privacy Policy',	'',	'draft',	'closed',	'open',	'',	'privacy-policy',	'',	'',	'2021-06-24 08:35:35',	'2021-06-24 08:35:35',	'',	0,	'https://localhost/?page_id=3',	0,	'page',	'',	0),
 (4,	1,	'2021-06-24 08:35:49',	'0000-00-00 00:00:00',	'',	'Auto Draft',	'',	'auto-draft',	'open',	'open',	'',	'',	'',	'',	'2021-06-24 08:35:49',	'0000-00-00 00:00:00',	'',	0,	'https://localhost/?p=4',	0,	'post',	'',	0),
-(5,	1,	'2021-06-24 08:36:36',	'2021-06-24 08:36:36',	'<!-- wp:paragraph -->\n<p>It\'s super content new post!</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>root and user</p>\n<!-- /wp:paragraph -->',	'NEW POST',	'',	'publish',	'open',	'open',	'',	'new-post',	'',	'',	'2021-06-24 08:43:16',	'2021-06-24 08:43:16',	'',	0,	'https://localhost/?p=5',	0,	'post',	'',	0),
+(5,	1,	'2021-06-24 08:36:36',	'2021-06-24 08:36:36',	'<!-- wp:paragraph -->\n<p>It\'s super content new post!</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>root and user</p>\n<!-- /wp:paragraph -->',	'NEW POST',	'',	'publish',	'open',	'open',	'',	'new-post',	'',	'',	'2021-06-24 08:43:16',	'2021-06-24 08:43:16',	'',	0,	'https://localhost/?p=5',	0,	'post',	'',	1),
 (6,	1,	'2021-06-24 08:36:36',	'2021-06-24 08:36:36',	'<!-- wp:paragraph -->\n<p>It\'s super content new post!</p>\n<!-- /wp:paragraph -->',	'NEW POST',	'',	'inherit',	'closed',	'closed',	'',	'5-revision-v1',	'',	'',	'2021-06-24 08:36:36',	'2021-06-24 08:36:36',	'',	5,	'https://localhost/?p=6',	0,	'revision',	'',	0),
 (7,	1,	'2021-06-24 08:43:16',	'2021-06-24 08:43:16',	'<!-- wp:paragraph -->\n<p>It\'s super content new post!</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p></p>\n<!-- /wp:paragraph -->\n\n<!-- wp:paragraph -->\n<p>root and user</p>\n<!-- /wp:paragraph -->',	'NEW POST',	'',	'inherit',	'closed',	'closed',	'',	'5-revision-v1',	'',	'',	'2021-06-24 08:43:16',	'2021-06-24 08:43:16',	'',	5,	'https://localhost/?p=7',	0,	'revision',	'',	0),
-(8,	1,	'2021-06-26 18:19:23',	'2021-06-26 18:19:23',	'<!-- wp:paragraph -->\n<p>Третий пост</p>\n<!-- /wp:paragraph -->',	'Третий пост',	'',	'publish',	'open',	'open',	'',	'%d0%a2%d1%80%d0%b5%d1%82%d0%b8%d0%b9-%d0%bf%d0%be%d1%81%d1%82',	'',	'',	'2021-06-26 18:19:23',	'2021-06-26 18:19:23',	'',	0,	'https://localhost/?p=8',	0,	'post',	'',	1),
-(9,	1,	'2021-06-26 18:19:23',	'2021-06-26 18:19:23',	'<!-- wp:paragraph -->\n<p>Третий пост</p>\n<!-- /wp:paragraph -->',	'Третий пост',	'',	'inherit',	'closed',	'closed',	'',	'8-revision-v1',	'',	'',	'2021-06-26 18:19:23',	'2021-06-26 18:19:23',	'',	8,	'https://localhost/?p=9',	0,	'revision',	'',	0);
+(8,	1,	'2021-06-26 18:19:23',	'2021-06-26 18:19:23',	'<!-- wp:paragraph -->\n<p>Третий пост</p>\n<!-- /wp:paragraph -->',	'Третий пост',	'',	'publish',	'open',	'open',	'',	'%d0%a2%d1%80%d0%b5%d1%82%d0%b8%d0%b9-%d0%bf%d0%be%d1%81%d1%82',	'',	'',	'2021-06-26 18:19:23',	'2021-06-26 18:19:23',	'',	0,	'https://localhost/?p=8',	0,	'post',	'',	2),
+(9,	1,	'2021-06-26 18:19:23',	'2021-06-26 18:19:23',	'<!-- wp:paragraph -->\n<p>Третий пост</p>\n<!-- /wp:paragraph -->',	'Третий пост',	'',	'inherit',	'closed',	'closed',	'',	'8-revision-v1',	'',	'',	'2021-06-26 18:19:23',	'2021-06-26 18:19:23',	'',	8,	'https://localhost/?p=9',	0,	'revision',	'',	0),
+(10,	1,	'2021-06-27 09:00:12',	'2021-06-27 09:00:12',	'<!-- wp:paragraph -->\n<p>Четвертый пост</p>\n<!-- /wp:paragraph -->',	'Четвертый пост',	'',	'publish',	'open',	'open',	'',	'%d0%a7%d0%b5%d1%82%d0%b2%d0%b5%d1%80%d1%82%d1%8b%d0%b9-%d0%bf%d0%be%d1%81%d1%82',	'',	'',	'2021-06-27 09:00:12',	'2021-06-27 09:00:12',	'',	0,	'https://localhost/?p=10',	0,	'post',	'',	1),
+(11,	1,	'2021-06-27 09:00:12',	'2021-06-27 09:00:12',	'<!-- wp:paragraph -->\n<p>Четвертый пост</p>\n<!-- /wp:paragraph -->',	'Четвертый пост',	'',	'inherit',	'closed',	'closed',	'',	'10-revision-v1',	'',	'',	'2021-06-27 09:00:12',	'2021-06-27 09:00:12',	'',	10,	'https://localhost/?p=11',	0,	'revision',	'',	0);
 
 DROP TABLE IF EXISTS `wp_termmeta`;
 CREATE TABLE `wp_termmeta` (
@@ -318,7 +326,8 @@ CREATE TABLE `wp_term_relationships` (
 INSERT INTO `wp_term_relationships` (`object_id`, `term_taxonomy_id`, `term_order`) VALUES
 (1,	1,	0),
 (5,	1,	0),
-(8,	1,	0);
+(8,	1,	0),
+(10,	1,	0);
 
 DROP TABLE IF EXISTS `wp_term_taxonomy`;
 CREATE TABLE `wp_term_taxonomy` (
@@ -334,7 +343,7 @@ CREATE TABLE `wp_term_taxonomy` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
-(1,	1,	'category',	'',	0,	3);
+(1,	1,	'category',	'',	0,	4);
 
 DROP TABLE IF EXISTS `wp_usermeta`;
 CREATE TABLE `wp_usermeta` (
@@ -364,7 +373,7 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (14,	1,	'dismissed_wp_pointers',	''),
 (15,	1,	'show_welcome_panel',	'1'),
 (17,	1,	'wp_dashboard_quick_press_last_post_id',	'4'),
-(18,	1,	'community-events-location',	'a:1:{s:2:\"ip\";s:10:\"172.19.0.0\";}'),
+(18,	1,	'community-events-location',	'a:1:{s:2:\"ip\";s:10:\"172.20.0.0\";}'),
 (19,	2,	'nickname',	'user'),
 (20,	2,	'first_name',	'user'),
 (21,	2,	'last_name',	''),
@@ -379,7 +388,9 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (30,	2,	'wp_capabilities',	'a:1:{s:10:\"subscriber\";b:1;}'),
 (31,	2,	'wp_user_level',	'0'),
 (32,	2,	'dismissed_wp_pointers',	''),
-(33,	1,	'session_tokens',	'a:1:{s:64:\"32cffc8215a7e4ccdcfcd677e49b52a7d6b1250aae857a5a78c487ae1b45697f\";a:4:{s:10:\"expiration\";i:1624904337;s:2:\"ip\";s:10:\"172.19.0.1\";s:2:\"ua\";s:78:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0\";s:5:\"login\";i:1624731537;}}');
+(33,	1,	'session_tokens',	'a:3:{s:64:\"32cffc8215a7e4ccdcfcd677e49b52a7d6b1250aae857a5a78c487ae1b45697f\";a:4:{s:10:\"expiration\";i:1624904337;s:2:\"ip\";s:10:\"172.19.0.1\";s:2:\"ua\";s:78:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0\";s:5:\"login\";i:1624731537;}s:64:\"ce01f371079a1b49e3edb29c17a34ee1778dd64ebf3f699abd75f09731000344\";a:4:{s:10:\"expiration\";i:1624908067;s:2:\"ip\";s:10:\"172.20.0.1\";s:2:\"ua\";s:115:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36\";s:5:\"login\";i:1624735267;}s:64:\"fa1f9b402514af28ea90ce088f7fc1e6bfcbaf453b3fad7a9b8fc4a96b07adf1\";a:4:{s:10:\"expiration\";i:1624957173;s:2:\"ip\";s:10:\"172.20.0.1\";s:2:\"ua\";s:78:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0\";s:5:\"login\";i:1624784373;}}'),
+(34,	1,	'managenav-menuscolumnshidden',	'a:5:{i:0;s:11:\"link-target\";i:1;s:11:\"css-classes\";i:2;s:3:\"xfn\";i:3;s:11:\"description\";i:4;s:15:\"title-attribute\";}'),
+(35,	1,	'metaboxhidden_nav-menus',	'a:2:{i:0;s:12:\"add-post_tag\";i:1;s:15:\"add-post_format\";}');
 
 DROP TABLE IF EXISTS `wp_users`;
 CREATE TABLE `wp_users` (
@@ -403,4 +414,4 @@ INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_
 (1,	'root',	'$P$BVLyRb4.Yq264cf89qrbzRTwCmyr3G1',	'root',	'as@af.ru',	'https://localhost',	'2021-06-24 08:35:35',	'',	0,	'root'),
 (2,	'user',	'$P$ByMjj4Be/uTUt7vhROj0Ja59H9r6BL.',	'user',	'user@adfs.ru',	'',	'2021-06-24 08:39:02',	'',	0,	'user');
 
--- 2021-06-26 18:22:33
+-- 2021-06-27 12:25:25

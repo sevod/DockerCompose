@@ -19,13 +19,12 @@ RUN apk add grafana --repository http://dl-cdn.alpinelinux.org/alpine/edge/commu
 #RUN wget https://dl.grafana.com/oss/release/grafana-8.0.2.linux-amd64.tar.gz
 #RUN tar -zxvf grafana-8.0.2.linux-amd64.tar.gz
 
-COPY ./srcs/grafana.db /usr/share/grafana/data/grafana.db
-
-
+COPY ./conf/grafana.db /usr/share/grafana/data/grafana.db
 
 WORKDIR /usr/share/grafana
 
 RUN grafana-cli plugins install redis-datasource
+RUN  mv /var/lib/grafana/plugins/redis-datasource /usr/share/grafana/data/plugins
 
 EXPOSE 3000
 
