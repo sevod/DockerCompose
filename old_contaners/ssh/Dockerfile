@@ -7,9 +7,9 @@ RUN apk add busybox-extras
 
 RUN ssh-keygen -A
 RUN mkdir /run/nginx
-COPY ./srcs/ssl /etc/nginx/ssl
-COPY ./srcs/index.html /var/www/index.html
-COPY ./srcs/sshd_config /etc/ssh/sshd_config
+COPY srcs/ssl /etc/nginx/ssl
+COPY srcs/index.html /var/www/index.html
+COPY srcs/sshd_config /etc/ssh/sshd_config
 #COPY ./srcs/default.conf /etc/nginx/conf.d
 RUN echo -e "123456\n123456\n" | passwd
 #RUN mkdir -p /var/log/supervisor

@@ -7,7 +7,7 @@ RUN apk add busybox-extras
 
 RUN mkdir /run/nginx
 COPY ./conf/default.conf /etc/nginx/conf.d
-COPY ./conf/aboutme.html /var/www/aboutme.html
+COPY ./conf/about.html /var/www/about.html
 
 EXPOSE 80
 

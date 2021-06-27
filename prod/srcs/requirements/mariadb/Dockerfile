@@ -14,12 +14,10 @@ COPY ./conf/wordpress.sql /wordpress.sql
 COPY ./tools/start.sh start.sh
 RUN chmod +x start.sh
 
-
 RUN mariadb-install-db -u root
+RUN /start.sh
 
 EXPOSE 3306
-
-RUN /start.sh
 
 ENTRYPOINT ["mysqld"]
 CMD ["-u root"]
