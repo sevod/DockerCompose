@@ -7,12 +7,14 @@ RUN apk add mariadb mariadb-client
 #telnet
 RUN apk add busybox-extras
 
+RUN mkdir /run/mysqld
+
 COPY ./conf/my.cnf /etc/my.cnf
-COPY conf/wordpress.sql /wordpress.sql
+COPY ./conf/wordpress.sql /wordpress.sql
 COPY ./tools/start.sh start.sh
 RUN chmod +x start.sh
 
-RUN mkdir /run/mysqld
+
 RUN mariadb-install-db -u root
 
 EXPOSE 3306

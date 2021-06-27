@@ -5,3 +5,4 @@
 5. почиситить default.conf в nginx
 6. server_name ipasta.42.fr; в конфиг nginx
 7. EXPOSE проверит/удалить лишние
+8. Генерацию сертификата, вынести из nginx

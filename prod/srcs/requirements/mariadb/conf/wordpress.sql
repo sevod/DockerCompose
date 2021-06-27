@@ -7,6 +7,9 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
+CREATE DATABASE `wordpress` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+USE `wordpress`;
+
 DROP TABLE IF EXISTS `wp_commentmeta`;
 CREATE TABLE `wp_commentmeta` (
   `meta_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -414,4 +417,4 @@ INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_
 (1,	'root',	'$P$BVLyRb4.Yq264cf89qrbzRTwCmyr3G1',	'root',	'as@af.ru',	'https://localhost',	'2021-06-24 08:35:35',	'',	0,	'root'),
 (2,	'user',	'$P$ByMjj4Be/uTUt7vhROj0Ja59H9r6BL.',	'user',	'user@adfs.ru',	'',	'2021-06-24 08:39:02',	'',	0,	'user');
 
--- 2021-06-27 12:25:25
+-- 2021-06-27 16:15:32
