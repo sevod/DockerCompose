@@ -28,6 +28,7 @@ define( 'DB_USER', 'root' );
 /** MySQL database password */
 define( 'DB_PASSWORD', '123456' );
 
+
 /** MySQL hostname */
 define( 'DB_HOST', 'mariadb' );
 

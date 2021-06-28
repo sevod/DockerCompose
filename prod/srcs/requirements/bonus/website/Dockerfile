@@ -9,7 +9,7 @@ RUN mkdir /run/nginx
 COPY ./conf/default.conf /etc/nginx/conf.d
 COPY ./conf/about.html /var/www/about.html
 
-EXPOSE 80
+#EXPOSE 80
 
 ENTRYPOINT ["nginx"]
 CMD ["-g",  "daemon off;"]

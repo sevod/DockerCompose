@@ -7,6 +7,12 @@ RUN apk add mariadb mariadb-client
 #telnet
 RUN apk add busybox-extras
 
+ARG MYSQL_ROOT_PASSWORD
+ARG MYSQL_USER
+ARG MYSQL_PASSWORD
+ARG CONT_REDIS
+ARG WP_BASE
+
 RUN mkdir /run/mysqld
 
 COPY ./conf/my.cnf /etc/my.cnf
@@ -16,8 +22,6 @@ RUN chmod +x start.sh
 
 RUN mariadb-install-db -u root
 RUN /start.sh
-
-EXPOSE 3306
 
 ENTRYPOINT ["mysqld"]
 CMD ["-u root"]

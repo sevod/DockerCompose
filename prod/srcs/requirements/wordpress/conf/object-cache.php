@@ -536,7 +536,8 @@ class WP_Object_Cache {
     protected function build_parameters() {
         $parameters = [
             'scheme' => 'tcp',
-            'host' => 'redis',
+            #'host' => 'redis',
+            'host' => '${CONT_REDIS}',
             'port' => 6379,
             'database' => 0,
             'timeout' => 1,

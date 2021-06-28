@@ -47,7 +47,14 @@ services:
       - ipasta_net
     container_name: wordpress
   mariadb:
-    build: ./requirements/mariadb
+    build:
+      context: ./requirements/mariadb
+      args:
+        - MYSQL_USER=${MYSQL_USER}
+        - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+        - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+        - CONT_REDIS=${CONT_REDIS}
+        - WP_BASE=${WP_BASE}
     image: mariadb
     env_file: .env
     volumes:
