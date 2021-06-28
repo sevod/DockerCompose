@@ -23,7 +23,13 @@ volumes:
 
 services:
   nginx:
-    build: ./requirements/nginx
+    build:
+      context: ./requirements/nginx
+      args:
+        - DOMAIN_NAME=${DOMAIN_NAME}
+        - CERTS_CRT=${CERTS_CRT}
+        - CERTS_KEY=${CERTS_KEY}
+        - DOMAIN_GRAFANA=${DOMAIN_GRAFANA}
     image: nginx
     env_file: .env
     volumes:

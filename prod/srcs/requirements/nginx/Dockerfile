@@ -5,11 +5,20 @@ RUN apk add vim bash nginx openssl
 #telnet
 RUN apk add busybox-extras
 
-RUN mkdir /run/nginx
-RUN openssl req -x509 -nodes -days 365 -subj "/C=RU/ST=RT/L=Kazan/CN=ipasta" -newkey rsa:2048 -keyout /etc/ssl/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt;
-COPY ./conf/default.conf /etc/nginx/conf.d
+ARG DOMAIN_NAME
+ARG CERTS_CRT
+ARG CERTS_KEY
+ARG DOMAIN_GRAFANA
 
-EXPOSE 443
+RUN mkdir /run/nginx
+COPY ./conf/default.conf /etc/nginx/conf.d/default.conf
+
+COPY ./conf/ssl /etc/ssl
+
+RUN sed -i "s/_DOMAIN_NAME/$DOMAIN_NAME/g" /etc/nginx/conf.d/default.conf
+RUN sed -i "s/_CERTS_CRT/$CERTS_CRT/g" /etc/nginx/conf.d/default.conf
+RUN sed -i "s/_CERTS_KEY/$CERTS_KEY/g" /etc/nginx/conf.d/default.conf
+RUN sed -i "s/_DOMAIN_GRAFANA/$DOMAIN_GRAFANA/g" /etc/nginx/conf.d/default.conf
 
 ENTRYPOINT ["nginx"]
 CMD ["-g",  "daemon off;"]
