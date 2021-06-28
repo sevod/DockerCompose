@@ -6,9 +6,10 @@ RUN apk add vim bash redis
 #telnet
 RUN apk add busybox-extras
 
-COPY ./conf/redis.conf /etc/redis.conf
+ARG CONT_REDIS
 
-#EXPOSE 6379
+COPY ./conf/redis.conf /etc/redis.conf
+RUN sed -i "s/_CONT_REDIS/$CONT_REDIS/g" /etc/redis.conf
 
 ENTRYPOINT ["redis-server"]
 CMD ["/etc/redis.conf"]
