@@ -3,7 +3,8 @@ FROM alpine:3.13.5
 RUN apk update
 RUN apk add vim bash vsftpd
 
-RUN echo -e "123456\n123456\n" | passwd
+ARG ROOT_PASSWORD
+RUN echo -e "$ROOT_PASSWORD\n$ROOT_PASSWORD\n" | passwd
 
 COPY ./conf/vsftpd.conf /etc/vsftpd/vsftpd.conf
 
