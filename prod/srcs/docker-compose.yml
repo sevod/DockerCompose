@@ -131,16 +131,4 @@ services:
     networks:
       - ipasta_net
     container_name: grafana
-    ports:
-      - "3000:3000"
-#  ssh:
-#    build: ./requirements/bonus/ssh
-#    image: ssh
-#    env_file: .env
-#    restart: always
-#    user: root
-#    networks:
-#      - ipasta_net
-#    container_name: ssh
-#    ports:
-#      - "22:22"
+    
