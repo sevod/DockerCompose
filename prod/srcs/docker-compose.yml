@@ -110,7 +110,6 @@ services:
     networks:
       - ipasta_net
     ports:
-      - "20:20"
       - "21:21"
       - "21000:21000"
   website:

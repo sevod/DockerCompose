@@ -35,5 +35,3 @@ RUN sed -i "s/_CONT_REDIS/$CONT_REDIS/g" /var/www/html/wp-content/object-cache.p
 
 ENTRYPOINT ["/usr/sbin/php-fpm7"]
 CMD ["-F"]
-
-
