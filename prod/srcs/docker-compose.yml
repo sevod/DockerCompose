@@ -22,25 +22,6 @@ volumes:
       device: /home/ipasta/data/sql
 
 services:
-  nginx:
-    build:
-      context: ./requirements/nginx
-      args:
-        - DOMAIN_NAME=${DOMAIN_NAME}
-        - CERTS_CRT=${CERTS_CRT}
-        - CERTS_KEY=${CERTS_KEY}
-        - DOMAIN_GRAFANA=${DOMAIN_GRAFANA}
-    image: nginx
-    env_file: .env
-    volumes:
-      - n_wp:/var/www/html
-    restart: always
-    user: root
-    networks:
-      - ipasta_net
-    container_name: nginx
-    ports:
-      - "443:443"
   wordpress:
     build:
       context: ./requirements/wordpress
@@ -59,6 +40,29 @@ services:
     networks:
       - ipasta_net
     container_name: wordpress
+
+  nginx:
+    build:
+      context: ./requirements/nginx
+      args:
+        - DOMAIN_NAME=${DOMAIN_NAME}
+        - CERTS_CRT=${CERTS_CRT}
+        - CERTS_KEY=${CERTS_KEY}
+        - DOMAIN_GRAFANA=${DOMAIN_GRAFANA}
+    depends_on:
+      - wordpress          
+    image: nginx
+    env_file: .env
+    volumes:
+      - n_wp:/var/www/html
+    restart: always
+    user: root
+    networks:
+      - ipasta_net
+    container_name: nginx
+    ports:
+      - "443:443"
+    
   mariadb:
     build:
       context: ./requirements/mariadb
@@ -77,6 +81,7 @@ services:
     networks:
       - ipasta_net
     container_name: mariadb
+
   adminer:
     build: ./requirements/bonus/adminer
     image: adminer
@@ -86,6 +91,7 @@ services:
     networks:
       - ipasta_net
     container_name: adminer
+
   redis:
     build: ./requirements/bonus/redis
     image: redis
@@ -95,12 +101,15 @@ services:
     user: root
     networks:
       - ipasta_net
+
   ftp:
     build:
       context: ./requirements/bonus/ftp
       args:
         - ROOT_PASSWORD=${ROOT_PASSWORD}
     image: ftp
+    depends_on:
+      - wordpress
     container_name: ftp
     env_file: .env
     restart: always
@@ -112,6 +121,7 @@ services:
     ports:
       - "21:21"
       - "21000:21000"
+
   website:
     build: ./requirements/bonus/website
     image: website
